@@ -11,8 +11,11 @@
 * 운영체제 : 
 
 ### 라이브러리 버전
-* ~
-* ~
+* os: Linux-5.4.144+-x86_64-with-Ubuntu-18.04-bionic
+* python: 3.7.12 (default, Sep 10 2021, 00:21:48) [GCC 7.5.0]
+* pandas: 1.1.5
+* numpy: 1.19.5
+* sklearn: 1.0.1
 
 ### 학습 소요 시간
 * bbox : 10시간 (1 epoch 당 평균 3분 소요)
