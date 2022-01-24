@@ -1,19 +1,19 @@
 [OPTUNA]
 ========
 
-## optuna 프레임워크를 활용해 하이퍼 파라미터 최적화를 진행한다.
+#### optuna 프레임워크를 활용해 하이퍼 파라미터 최적화를 진행한다.
 
-# 1. optuna 프레임워크 설치 및 불러오기
+### 1. optuna 프레임워크 설치 및 불러오기
 
 ```python
 !pip install optuna
 import optuna
 ```
 
-# 2. objective 함수 정의
+### 2. objective 함수 정의
 
-### 함수 내부 params 안에 파라미터를 정의하고, 랜덤한 파라미터 값으로 모델을 학습하고, validation set을 통해 구해진 f1_score이 반환되는 함수이다.
-### 파라미터 정의 시에는 해당 파라미터의 형태와 범위를 같이 설정한다.
+##### 함수 내부 params 안에 파라미터를 정의하고, 랜덤한 파라미터 값으로 모델을 학습하고, validation set을 통해 구해진 f1_score이 반환되는 함수이다.
+##### 파라미터 정의 시에는 해당 파라미터의 형태와 범위를 같이 설정한다.
 
 ```python
 # create trial function
@@ -62,9 +62,9 @@ def objective(trial):
     return score
 ```
 
-# 3. optuna 진행
-### optuna.create_study()를 생성하며, f1-score를 최대로 하는 방향으로 지정한다.(direction='maximize')
-### objective 함수를 활용해 optimize를 진행하며, 반복 횟수(n_trials)는 20으로 설정한다.
+### 3. optuna 진행
+##### optuna.create_study()를 생성하며, f1-score를 최대로 하는 방향으로 지정한다.(direction='maximize')
+##### objective 함수를 활용해 optimize를 진행하며, 반복 횟수(n_trials)는 20으로 설정한다.
 
 ```python
 study = optuna.create_study(
@@ -78,9 +78,9 @@ study.optimize(
 )
 ```
 
-# 4. 최적의 파라미터 값 출력
-### study.best_trial.params에 저장되어 있는 최적의 params를 Best_params로 정의한다.
-### f1_score이 최대였던 trial의 f1_score 값과 params 리스트를 각각 Best Trial, Best Params로 출력한다.
+### 4. 최적의 파라미터 값 출력
+##### study.best_trial.params에 저장되어 있는 최적의 params를 Best_params로 정의한다.
+##### f1_score이 최대였던 trial의 f1_score 값과 params 리스트를 각각 Best Trial, Best Params로 출력한다.
 
 ```python
 Best_params = study.best_trial.params
